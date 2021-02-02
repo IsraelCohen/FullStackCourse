@@ -1,0 +1,44 @@
+<mvc:View controllerName="IsraelFinalExam.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<headerContent>
+					<Text text="Hello {Json>/Address/Lastname}" visible="{= !!${Json>/Address/Lastname}}"/>
+				</headerContent>
+				<Button text="Load Data from SAP" press=".loadStuff"/>
+				<Button text="Cross App Navigate" press=".crossAppNavigate"/>
+				<content>
+					<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" title="Address" labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="User No."/>
+							<Text text="{Json>/Address/PersNo}"/>
+							<Label text="Last Name"/>
+							<Text text="{Json>/Address/Lastname}"/>
+						</f:content>
+					</f:SimpleForm>
+					<Table items="{Json>/Profiles}">
+						<columns>
+							<Column>
+								<Text text="Profile Name"/>
+							</Column>
+							<Column>
+								<Text text="Roll Name"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{Json>Bapiprof}"/>
+									<Text text="{Json>Bapiptext}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
